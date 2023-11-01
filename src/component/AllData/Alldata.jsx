@@ -1,24 +1,58 @@
-import React from 'react'
-import { useGetPokemonByNameQuery } from '../../ReduxToolkitQuery/redux/Redux'
-const Alldata = () => {
-    const { data, error, isLoading } = useGetPokemonByNameQuery('bulbasaur')
-    console.log(data);
+import React, { useCallback } from 'react';
+import { useGetAllPokemonsQuery, useDeleteUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
+import Example from './CreateModal';
 
-    
+const Alldata = () => {
+    const { data, error, isLoading, refetch } = useGetAllPokemonsQuery();
+
+    const [deleteUser] = useDeleteUserMutation();
+
+    const handleDeleteUser = async (userId) => {
+        try {
+            await deleteUser(userId);
+            refetch();
+        } catch (err) {
+            console.error("Error deleting user:", err);
+        }
+    };
+
+    const updateDataAfterAdd = useCallback(() => {
+        console.log('called refetch')
+        refetch();
+    }, [refetch]);
+
     return (
         <div className="App">
             {error ? (
-                <>Oh no, there was an error</>
+                <p>Oh no, there was an error</p>
             ) : isLoading ? (
-                <>Loading...</>
+                <p>Loading...</p>
             ) : data ? (
                 <>
-                    <h3>{data.species.name}</h3>
-                    <img src={data.sprites.front_shiny} alt={data.species.name} />
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                        {data.map((ele) => (
+                            <tr key={ele.id}>
+                                <td>{ele.name}</td>
+                                <td>{ele.phone}</td>
+                                <td>{ele.email}</td>
+                                <td>
+                                    <button>Edit</button>
+                                    <button onClick={() => handleDeleteUser(ele.id)}>Delete</button>
+                                </td>
+                            </tr>
+                        ))}
+                    </table>
                 </>
             ) : null}
+            <Example updateDataAfterAdd={updateDataAfterAdd} />
         </div>
-    )
-}
+    );
+};
 
-export default Alldata
+export default Alldata;
