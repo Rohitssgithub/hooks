@@ -3,9 +3,11 @@ import UsecallBacks from './component/CallBack/UsecallBack'
 import PureComponent from './component/purecomponent/PureComponent'
 import UseMemo from './component/UseMemoHook/UseMemo'
 import { UseContextcom } from './component/usecontext/UseContext'
+import Alldata from './component/AllData/Alldata'
 const App = () => {
   return (
     <>
+      <Alldata></Alldata>
       <UseContextcom>
         {/* <UsecallBacks></UsecallBacks>
         <UseMemo></UseMemo> */}
