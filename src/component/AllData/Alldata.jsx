@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useGetAllPokemonsQuery, useDeleteUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
+import Modals from './Modal';
 import Example from './CreateModal';
-
 const Alldata = () => {
     const { data, error, isLoading, refetch } = useGetAllPokemonsQuery();
 
@@ -50,7 +50,8 @@ const Alldata = () => {
                     </table>
                 </>
             ) : null}
-            <Example updateDataAfterAdd={updateDataAfterAdd} />
+            {/* <Example updateDataAfterAdd={updateDataAfterAdd} /> */}
+            <Example updateDataAfterAdd={updateDataAfterAdd}/>
         </div>
     );
 };
