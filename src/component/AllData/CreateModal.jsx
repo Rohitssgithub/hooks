@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useCreateUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
 import Modals from './Modal';
+import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
+import * as Yup from 'yup';
 
 function Example({ updateDataAfterAdd, buttonHead }) {
 
@@ -11,34 +13,52 @@ function Example({ updateDataAfterAdd, buttonHead }) {
         age: '',
     });
 
-    const handleCreateUser = async () => {
-        try {
-            await createUser(formData);
-            setShow(false)
-            updateDataAfterAdd();
-            setFormData({
-                name: '',
-                email: '',
-                age: '',
-            })
-        } catch (error) {
-            console.error("Error creating user:", error);
-        }
-    };
+    // const handleCreateUser = async () => {
+    //     try {
+    //         await createUser(formData);
+    //         setShow(false)
+    //         updateDataAfterAdd();
+    //         setFormData({
+    //             name: '',
+    //             email: '',
+    //             age: '',
+    //         })
+    //     } catch (error) {
+    //         console.error("Error creating user:", error);
+    //     }
+    // };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: name === 'age' ? parseInt(value) : value,
-        });
-    };
+    // const handleChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormData({
+    //         ...formData,
+    //         [name]: name === 'age' ? parseInt(value) : value,
+    //     });
+    // };
 
 
     const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const initialValues = {
+        name: '',
+        email: '',
+        // age: '',
+        phone: '',
+        // gender: ''
+    }
+
+    const SignupSchema = Yup.object().shape({
+        name: Yup.string()
+            .min(2, 'Too Short!')
+            .max(50, 'Too Long!')
+            .required('Name is Required'),
+        // age: Yup.string().email('Invalid email').required('Email is Required'),
+        email: Yup.string().email('Invalid email').required('Email is Required'),
+        phone: Yup.string()
+            .matches(/^\d{10}$/, 'Phone number must be exactly 10 digits')
+            .required('Phone number is Required'),
+    });
+
 
     return (
         <>
@@ -46,7 +66,55 @@ function Example({ updateDataAfterAdd, buttonHead }) {
                 show={show}
                 setShow={setShow}
             >
-                <div>
+                <Formik
+                    initialValues={initialValues}
+                    validationSchema={SignupSchema}
+                    onSubmit={async (values) => {
+                        console.log(values);
+                        try {
+                            await createUser(values)
+                            updateDataAfterAdd();
+                            setShow(false)
+                        } catch (error) {
+                            console.error("Error creating user:", error);
+                        }
+                    }}
+                >
+                    {({ errors, touched }) => (
+                        <Form>
+                            <div className="mb-4">
+                                <label htmlFor="exampleFormControlInput1" >Name</label>
+                                <Field name="name"
+                                    className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')}
+                                    placeholder="Enter your Name" />
+                                {errors.name && touched.name ? (
+                                    <span className='error-text'>{errors.name}</span>
+                                ) : null}
+                            </div>
+                            <div className="mb-4">
+                                <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
+                                <Field name="email"
+                                    className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')}
+                                    placeholder="Enter your Email" />
+                                {errors.email && touched.email ? (
+                                    <span className='error-text'>{errors.email}</span>
+                                ) : null}
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="exampleFormControlInput1" className="form-label">Phone No.</label>
+                                <Field name="phone" type="text"
+                                    className={'form-control' + (errors.name && touched.name ? ' is-invalid' : '')} placeholder="Enter your phone number" />
+                                {errors.phone && touched.phone ?
+                                    <span className='error-text'>{errors.phone}</span>
+                                    : null}
+                            </div>
+                            <div className="mb-3 text-center">
+                                <button className='btn btn-success mx-2' type='submit'>Add</button>
+                            </div>
+                        </Form>
+                    )}
+                </Formik>
+                {/* <div>
                     <h2>Create User</h2>
                     <div>
                         <label htmlFor="name">Name:</label>
@@ -80,8 +148,8 @@ function Example({ updateDataAfterAdd, buttonHead }) {
                             onChange={handleChange}
                         />
                     </div>
-                    <button onClick={handleCreateUser}>Add</button>
-                </div>
+                    <button className='btn btn-primary' onClick={handleCreateUser}>Add</button>
+                </div> */}
             </Modals>
 
         </>

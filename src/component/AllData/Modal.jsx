@@ -20,15 +20,6 @@ const Modals = ({ children, buttonHead,setShow,show }) => {
                 <Modal.Body>
                     {children}
                 </Modal.Body>
-                <button onClick={handleClose}>close</button>
-                {/* <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handleCreateUser}>
-                        Add
-                    </Button>
-                </Modal.Footer> */}
             </Modal>
         </>
     )
