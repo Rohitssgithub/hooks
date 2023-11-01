@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const pokemonApi = createApi({
+export const usesApi = createApi({
     reducerPath: 'pokemonApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://64e34f09bac46e480e789213.mockapi.io' }),
     endpoints: (builder) => ({
@@ -37,4 +37,4 @@ export const {
     useUpdateUserMutation,
     useDeleteUserMutation,
     // useGetAbilityByNameQuery,
-} = pokemonApi;
+} = usesApi;

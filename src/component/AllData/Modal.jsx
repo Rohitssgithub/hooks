@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-const Modals = ({ children, buttonHead,setShow,show }) => {
+const Modals = ({ children, buttonHead, setShow, show }) => {
 
     // const [show, setShow] = useState(false);
 

@@ -8,9 +8,9 @@ import Debounce from './component/Debounce'
 const App = () => {
   return (
     <>
-    <Debounce></Debounce>
+    {/* <Debounce></Debounce> */}
       {/* <CreatePokemon /> */}
-      {/* <Alldata></Alldata> */}
+      <Alldata></Alldata>
       {/* <UseContextcom> */}
       {/* <UsecallBacks></UsecallBacks>
         <UseMemo></UseMemo> */}
