@@ -7,11 +7,11 @@ import * as Yup from 'yup';
 function Example({ updateDataAfterAdd, buttonHead }) {
 
     const [createUser, { data, error, isLoading }] = useCreateUserMutation();
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        age: '',
-    });
+    // const [formData, setFormData] = useState({
+    //     name: '',
+    //     email: '',
+    //     age: '',
+    // });
 
     // const handleCreateUser = async () => {
     //     try {
@@ -42,9 +42,7 @@ function Example({ updateDataAfterAdd, buttonHead }) {
     const initialValues = {
         name: '',
         email: '',
-        // age: '',
         phone: '',
-        // gender: ''
     }
 
     const SignupSchema = Yup.object().shape({

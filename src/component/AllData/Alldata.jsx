@@ -4,6 +4,9 @@ import Modals from './Modal';
 import Example from './CreateModal';
 const Alldata = () => {
     const { data, error, isLoading, refetch } = useGetAllPokemonsQuery();
+    const [show, setShow] = useState(false);
+    const [id, setId] = useState(null);
+
 
     const [deleteUser] = useDeleteUserMutation();
 
@@ -20,6 +23,12 @@ const Alldata = () => {
         console.log('called refetch')
         refetch();
     }, [refetch]);
+
+
+    const handleEditOpenModal = (id) => {
+        setShow(false)
+        setId(id)
+    }
 
     return (
         <div className="App">
@@ -42,7 +51,7 @@ const Alldata = () => {
                                 <td>{ele.phone}</td>
                                 <td>{ele.email}</td>
                                 <td>
-                                    <button>Edit</button>
+                                    <button onClick={() => handleEditOpenModal(ele.id)}>Edit</button>
                                     <button onClick={() => handleDeleteUser(ele.id)}>Delete</button>
                                 </td>
                             </tr>
@@ -51,7 +60,7 @@ const Alldata = () => {
                 </>
             ) : null}
             {/* <Example updateDataAfterAdd={updateDataAfterAdd} /> */}
-            <Example updateDataAfterAdd={updateDataAfterAdd} buttonHead='Add'/>
+            <Example updateDataAfterAdd={updateDataAfterAdd} buttonHead='Add' />
         </div>
     );
 };
