@@ -4,7 +4,7 @@ import Modals from './Modal';
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import * as Yup from 'yup';
 
-function Example({ updateDataAfterAdd, buttonHead }) {
+function Example({ updateDataAfterAdd, buttonHead,show,setShow }) {
 
     const [createUser, { data, error, isLoading }] = useCreateUserMutation();
     // const [formData, setFormData] = useState({
@@ -36,8 +36,10 @@ function Example({ updateDataAfterAdd, buttonHead }) {
     //     });
     // };
 
+    console.log('called')
+    // const [show, setShow] = useState(false);
 
-    const [show, setShow] = useState(false);
+    console.log(show)
 
     const initialValues = {
         name: '',

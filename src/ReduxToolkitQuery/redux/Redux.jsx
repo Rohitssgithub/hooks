@@ -31,10 +31,8 @@ export const usesApi = createApi({
 });
 
 export const {
-    // useGetPokemonByNameQuery,
     useGetAllPokemonsQuery,
     useCreateUserMutation,
     useUpdateUserMutation,
     useDeleteUserMutation,
-    // useGetAbilityByNameQuery,
 } = usesApi;

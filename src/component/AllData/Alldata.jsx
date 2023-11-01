@@ -26,7 +26,7 @@ const Alldata = () => {
 
 
     const handleEditOpenModal = (id) => {
-        setShow(false)
+        setShow(true)
         setId(id)
     }
 
@@ -60,7 +60,7 @@ const Alldata = () => {
                 </>
             ) : null}
             {/* <Example updateDataAfterAdd={updateDataAfterAdd} /> */}
-            <Example updateDataAfterAdd={updateDataAfterAdd} buttonHead='Add' />
+            <Example show={show} setShow={setShow} updateDataAfterAdd={updateDataAfterAdd} buttonHead='Add' />
         </div>
     );
 };
