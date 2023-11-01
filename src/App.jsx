@@ -4,11 +4,13 @@ import PureComponent from './component/purecomponent/PureComponent'
 import UseMemo from './component/UseMemoHook/UseMemo'
 import { UseContextcom } from './component/usecontext/UseContext'
 import Alldata from './component/AllData/Alldata';
+import Debounce from './component/Debounce'
 const App = () => {
   return (
     <>
+    <Debounce></Debounce>
       {/* <CreatePokemon /> */}
-      <Alldata></Alldata>
+      {/* <Alldata></Alldata> */}
       {/* <UseContextcom> */}
       {/* <UsecallBacks></UsecallBacks>
         <UseMemo></UseMemo> */}
