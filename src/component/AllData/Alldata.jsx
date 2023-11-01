@@ -51,7 +51,7 @@ const Alldata = () => {
                 </>
             ) : null}
             {/* <Example updateDataAfterAdd={updateDataAfterAdd} /> */}
-            <Example updateDataAfterAdd={updateDataAfterAdd}/>
+            <Example updateDataAfterAdd={updateDataAfterAdd} buttonHead='Add'/>
         </div>
     );
 };

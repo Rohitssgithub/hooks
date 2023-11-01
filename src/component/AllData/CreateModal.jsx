@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useCreateUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
 import Modals from './Modal';
 
-function Example({ updateDataAfterAdd }) {
+function Example({ updateDataAfterAdd, buttonHead }) {
 
     const [createUser, { data, error, isLoading }] = useCreateUserMutation();
     const [formData, setFormData] = useState({
@@ -16,6 +16,11 @@ function Example({ updateDataAfterAdd }) {
             await createUser(formData);
             setShow(false)
             updateDataAfterAdd();
+            setFormData({
+                name: '',
+                email: '',
+                age: '',
+            })
         } catch (error) {
             console.error("Error creating user:", error);
         }
@@ -37,7 +42,9 @@ function Example({ updateDataAfterAdd }) {
 
     return (
         <>
-            <Modals
+            <Modals buttonHead={buttonHead}
+                show={show}
+                setShow={setShow}
             >
                 <div>
                     <h2>Create User</h2>
