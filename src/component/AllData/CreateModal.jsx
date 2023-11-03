@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
-import { useCreateUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
+import { useCreateUserMutation, useUpdateUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
 import Modals from './Modal';
 import { Formik, Form, Field, ErrorMessage, useFormik } from 'formik';
 import * as Yup from 'yup';
 
-function Example({ updateDataAfterAdd, buttonHead,show,setShow }) {
+function Example({ updateDataAfterAdd, buttonHead, show, setShow, user }) {
+
+    console.log('user', user)
 
     const [createUser, { data, error, isLoading }] = useCreateUserMutation();
+    const [updateUser] = useUpdateUserMutation();
+
+
+    const modi = {
+        name: user.name,
+        email: user.email,
+        phone: user.phone
+    }
     // const [formData, setFormData] = useState({
     //     name: '',
     //     email: '',
@@ -67,16 +77,29 @@ function Example({ updateDataAfterAdd, buttonHead,show,setShow }) {
                 setShow={setShow}
             >
                 <Formik
-                    initialValues={initialValues}
+                    initialValues={Object.keys(user).length === 0 ? initialValues : modi}
                     validationSchema={SignupSchema}
                     onSubmit={async (values) => {
                         console.log(values);
-                        try {
-                            await createUser(values)
-                            updateDataAfterAdd();
-                            setShow(false)
-                        } catch (error) {
-                            console.error("Error creating user:", error);
+
+                        if (Object.keys(user).length === 0) {
+                            try {
+                                await createUser(values)
+                                updateDataAfterAdd();
+                                setShow(false)
+                            } catch (error) {
+                                console.error("Error creating user:", error);
+                            }
+                        }
+                        else {
+                            try {
+                                await updateUser(values)
+                                updateDataAfterAdd();
+                                setShow(false)
+                            } catch (error) {
+                                console.error("Error creating user:", error);
+                            }
+
                         }
                     }}
                 >

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useGetAllPokemonsQuery, useDeleteUserMutation } from '../../ReduxToolkitQuery/redux/Redux';
 import Modals from './Modal';
 import Example from './CreateModal';
@@ -7,6 +7,7 @@ const Alldata = () => {
     const [show, setShow] = useState(false);
     const [id, setId] = useState(null);
 
+    const [user, setUser] = useState({})
 
     const [deleteUser] = useDeleteUserMutation();
 
@@ -25,9 +26,11 @@ const Alldata = () => {
     }, [refetch]);
 
 
-    const handleEditOpenModal = (id) => {
+    const handleEditOpenModal = (ele) => {
         setShow(true)
         setId(id)
+        setUser(ele)
+
     }
 
     return (
@@ -51,7 +54,7 @@ const Alldata = () => {
                                 <td>{ele.phone}</td>
                                 <td>{ele.email}</td>
                                 <td>
-                                    <button onClick={() => handleEditOpenModal(ele.id)}>Edit</button>
+                                    <button onClick={() => handleEditOpenModal(ele)}>Edit</button>
                                     <button onClick={() => handleDeleteUser(ele.id)}>Delete</button>
                                 </td>
                             </tr>
@@ -60,7 +63,7 @@ const Alldata = () => {
                 </>
             ) : null}
             {/* <Example updateDataAfterAdd={updateDataAfterAdd} /> */}
-            <Example show={show} setShow={setShow} updateDataAfterAdd={updateDataAfterAdd} buttonHead='Add' />
+            <Example show={show} setShow={setShow} updateDataAfterAdd={updateDataAfterAdd} user={user} buttonHead='Add' />
         </div>
     );
 };
