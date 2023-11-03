@@ -30,6 +30,7 @@ const Alldata = () => {
         setShow(true)
         setId(id)
         setUser(ele)
+        
 
     }
 
