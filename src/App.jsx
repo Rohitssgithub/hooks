@@ -8,9 +8,11 @@ import Debounce from './component/Debounce'
 import DeBounceing from './component/DeBounceing'
 import Todos from './component/UseReducer'
 import ForwardRef from './component/ForwardRef'
+import UseTransistion from './component/UseTransistion'
 const App = () => {
   return (
     <>
+      <UseTransistion></UseTransistion>
       <PureComponent />
       <ForwardRef></ForwardRef>
       <Todos></Todos>
