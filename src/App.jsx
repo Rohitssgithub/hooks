@@ -7,9 +7,11 @@ import Alldata from './component/AllData/Alldata';
 import Debounce from './component/Debounce'
 import DeBounceing from './component/DeBounceing'
 import Todos from './component/UseReducer'
+import ForwardRef from './component/ForwardRef'
 const App = () => {
   return (
     <>
+    <ForwardRef></ForwardRef>
       <Todos></Todos>
       <DeBounceing />
       {/* <Debounce></Debounce> */}
