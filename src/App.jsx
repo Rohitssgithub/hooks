@@ -11,7 +11,8 @@ import ForwardRef from './component/ForwardRef'
 const App = () => {
   return (
     <>
-    <ForwardRef></ForwardRef>
+      <PureComponent />
+      <ForwardRef></ForwardRef>
       <Todos></Todos>
       <DeBounceing />
       {/* <Debounce></Debounce> */}

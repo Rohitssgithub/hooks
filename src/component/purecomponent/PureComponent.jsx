@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
 import Child from '../purecomponent/Child';
 
-
-import { userContext } from '../usecontext/UseContext';
+// import { userContext } from '../usecontext/UseContext';
 const PureComponent = () => {
 
-    let { name } = useContext(userContext)
-    console.log('name', name)
+    // let { name } = useContext(userContext)
+    // console.log('name', name)
 
     let [count, setCount] = useState(0);
     let [todo, setTodo] = useState([])
