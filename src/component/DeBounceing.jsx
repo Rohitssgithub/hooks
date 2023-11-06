@@ -4,6 +4,7 @@ const DeBounceing = () => {
 
     let [searchValue, setSerchValue] = useState('');
     let [data, setData] = useState([])
+    let [debounceData, setDebounceData] = useState('')
 
     const handleChanges = (e) => {
         setSerchValue(e.target.value)
@@ -22,6 +23,7 @@ const DeBounceing = () => {
             clearTimeout(debounce)
         }
     }, [searchValue])
+
 
 
     return (
