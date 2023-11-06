@@ -5,10 +5,12 @@ import UseMemo from './component/UseMemoHook/UseMemo'
 import { UseContextcom } from './component/usecontext/UseContext'
 import Alldata from './component/AllData/Alldata';
 import Debounce from './component/Debounce'
+import DeBounceing from './component/DeBounceing'
 const App = () => {
   return (
     <>
-    {/* <Debounce></Debounce> */}
+      <DeBounceing />
+      {/* <Debounce></Debounce> */}
       {/* <CreatePokemon /> */}
       <Alldata></Alldata>
       {/* <UseContextcom> */}
