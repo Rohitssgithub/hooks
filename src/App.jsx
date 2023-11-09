@@ -9,17 +9,23 @@ import DeBounceing from './component/DeBounceing'
 import Todos from './component/UseReducer'
 import ForwardRef from './component/ForwardRef'
 import UseTransistion from './component/UseTransistion'
+import ChildA from './component/HigherOrderComponenet/ChildA'
+import ChildB from './component/HigherOrderComponenet/ChildB'
+import RegistrationForm from './component/RegistrationForm/RegistrationForm'
 const App = () => {
   return (
     <>
-      <UseTransistion></UseTransistion>
-      <PureComponent />
+    <RegistrationForm></RegistrationForm>
+      {/* <ChildA></ChildA>
+      <ChildB></ChildB> */}
+      {/* <UseTransistion></UseTransistion> */}
+      {/* <PureComponent />
       <ForwardRef></ForwardRef>
       <Todos></Todos>
-      <DeBounceing />
+      <DeBounceing /> */}
       {/* <Debounce></Debounce> */}
       {/* <CreatePokemon /> */}
-      <Alldata></Alldata>
+      {/* <Alldata></Alldata> */}
       {/* <UseContextcom> */}
       {/* <UsecallBacks></UsecallBacks>
         <UseMemo></UseMemo> */}
