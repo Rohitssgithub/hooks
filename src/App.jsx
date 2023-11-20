@@ -18,10 +18,14 @@ import UseCallBack from './component/pages/UseCallBack';
 import DebounceExample from './component/Debounce';
 import DebounceReact from './component/pages/DebounceReact';
 import DebouncingMain from './component/pages/DebouncingMain';
+import CustomHook from './component/pages/CustomHook';
+import Com from './component/pages/Com';
 const App = () => {
   return (
     <>
-      <DebouncingMain />
+    <Com></Com>
+    <CustomHook></CustomHook>
+      {/* <DebouncingMain /> */}
       {/* <DebounceReact/> */}
       {/* <UseCallBack></UseCallBack> */}
       {/* <UseMemo></UseMemo> */}

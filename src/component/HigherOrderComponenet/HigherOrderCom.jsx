@@ -7,9 +7,7 @@ const HigherOrderCom = (WrappedComponent) => {
         function increfun() {
             setCount(count + 1)
         }
-
         return <WrappedComponent count={count} increfun={increfun} />
-
     }
     return mainfun
 }
