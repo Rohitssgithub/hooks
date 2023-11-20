@@ -7,7 +7,7 @@ const PureComponent = () => {
     let [todo, setTodo] = useState([])
     return (
         <>
-            <p>{count}</p>
+            <p>{count}</p>a
             <button onClick={() => setCount(count + 1)}>click</button>
             <Child todo={todo}></Child>
             <button onClick={() => {

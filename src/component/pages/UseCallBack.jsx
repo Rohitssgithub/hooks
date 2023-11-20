@@ -1,15 +1,9 @@
 import React, { useState, useCallback } from 'react'
-import Child from './Child'
-
+import Child from '../CallBack/Child'
 const UsecallBacks = () => {
     let [todo, setTodo] = useState([])
     let [count, setCount] = useState(0)
 
-
-    // const addTodo=()=>{
-    //     setTodo([...todo,'new todo'])
-    // }
-    a
     let addTodo = useCallback(() => {
         setTodo([...todo, 'new todo'])
     }, [todo])
