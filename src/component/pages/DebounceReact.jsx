@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function DebounceExample() {
+function DebounceReact() {
     const [searchTerm, setSearchTerm] = useState('');
     const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
@@ -51,4 +51,4 @@ function DebounceExample() {
     );
 }
 
-export default DebounceExample;
+export default DebounceReact;

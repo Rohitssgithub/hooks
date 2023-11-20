@@ -15,10 +15,15 @@ import RegistrationForm from './component/RegistrationForm/RegistrationForm'
 import PureComponent from './component/pages/PureComponent'
 import UseMemo from './component/pages/UseMemo';
 import UseCallBack from './component/pages/UseCallBack';
+import DebounceExample from './component/Debounce';
+import DebounceReact from './component/pages/DebounceReact';
+import DebouncingMain from './component/pages/DebouncingMain';
 const App = () => {
   return (
     <>
-      <UseCallBack></UseCallBack>
+      <DebouncingMain />
+      {/* <DebounceReact/> */}
+      {/* <UseCallBack></UseCallBack> */}
       {/* <UseMemo></UseMemo> */}
       {/* <PureComponent /> */}
       {/* <RegistrationForm></RegistrationForm> */}
@@ -29,6 +34,7 @@ const App = () => {
       {/* <ForwardRef></ForwardRef>
       <Todos></Todos>
       <DeBounceing /> */}
+      {/* <DeBounceing /> */}
       {/* <Debounce></Debounce> */}
       {/* <CreatePokemon /> */}
       {/* <Alldata></Alldata> */}
