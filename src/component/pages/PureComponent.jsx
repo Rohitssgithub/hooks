@@ -7,7 +7,7 @@ const PureComponent = () => {
     return (
         <>
             <p>{count}</p>
-            <button>increase</button>
+            <button onClick={() => setCount(count + 1)}>increase</button>
             <Child todo={todo}></Child>
             <button onClick={() => setTodo([...todo, 'new'])}>add</button>
         </>

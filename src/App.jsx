@@ -20,16 +20,31 @@ import DebounceReact from './component/pages/DebounceReact';
 import DebouncingMain from './component/pages/DebouncingMain';
 import CustomHook from './component/pages/CustomHook';
 import Com from './component/pages/Com';
+import { UseContextFun } from './component/UseContext';
+import ContextChild from './component/ContextChild';
+import ComA from './component/HigherOrderComponent/ComA';
+import ComB from './component/HigherOrderComponent/ComB';
+import Debouncing from './component/Debouncing/Debouncing';
+import Child from './component/purecomponent/Child';
+import UseReducer from './component/usereducer/UseReducer';
 const App = () => {
   return (
     <>
-    <Com></Com>
-    <CustomHook></CustomHook>
+      <UseReducer></UseReducer>
+      {/* <PureComponent /> */}
+
+      {/* <Debouncing></Debouncing> */}
+      {/* <ComA></ComA>
+    <ComB></ComB>
+      <UseContextFun>
+        <ContextChild />
+      </UseContextFun> */}
+      {/* <Com></Com>
+    <CustomHook></CustomHook> */}
       {/* <DebouncingMain /> */}
       {/* <DebounceReact/> */}
       {/* <UseCallBack></UseCallBack> */}
       {/* <UseMemo></UseMemo> */}
-      {/* <PureComponent /> */}
       {/* <RegistrationForm></RegistrationForm> */}
       {/* <ChildA></ChildA>
       <ChildB></ChildB> */}
