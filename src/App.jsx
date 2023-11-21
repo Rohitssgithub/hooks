@@ -27,10 +27,14 @@ import ComB from './component/HigherOrderComponent/ComB';
 import Debouncing from './component/Debouncing/Debouncing';
 import Child from './component/purecomponent/Child';
 import UseReducer from './component/usereducer/UseReducer';
+import Promises from './component/Promises';
+import ForWardRefExample from './component/pages/ForWardRefExample';
 const App = () => {
   return (
     <>
-      <UseReducer></UseReducer>
+    <ForWardRefExample></ForWardRefExample>
+    <Promises></Promises>
+      {/* <UseReducer></UseReducer> */}
       {/* <PureComponent /> */}
 
       {/* <Debouncing></Debouncing> */}
