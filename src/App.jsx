@@ -6,6 +6,7 @@ const App = () => {
     <>
      <Alldata></Alldata>
      <RegistrationForm/>
+     {/* data */}
     </>
   )
 }
